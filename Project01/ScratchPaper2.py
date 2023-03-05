@@ -1,23 +1,18 @@
 
 #ScratchPaper2.py
-ThisSequence = 'AGGTC'
+ThisSequence = 'AGBGTHH' #CHANGE ME
+
 numChars = len(ThisSequence)
 print("numChars: " + str(numChars))
 Flag = 0
 for i in range (0,numChars):
     ThisChar = ThisSequence[i]
-    match ThisChar: 
-        case 'A':
-            Flag += 0
-        case 'C':
-            Flag += 0
-        case 'G':
-            Flag += 0
-        case 'T':
-            Flag += 0
-        case other: 
-            Flag += 1 
-if Flag > 0 : 
-    print("Error")
-if Flag == 0 : 
-    print("Fill it up")
+    if ThisChar in ['A','C','G','T']:
+        Flag += 0 
+    else: 
+        print("fail: "+ ThisChar)
+        Flag += 1 
+if Flag > 0: 
+    print("FOOFOO")
+else:
+    print("Good")

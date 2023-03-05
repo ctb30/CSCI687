@@ -1,9 +1,9 @@
-insert 2 DNA AGG
+insert 2 DNN AGG
 insert 3 DNA AGGC
 insert 5 RNA ACCU
 print
 remove 1
-insert 2 RNA BBBB
+remove 2
 print
 insert 16 DNA AGCGGCG
 insert 15 RNA AAA
