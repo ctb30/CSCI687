@@ -70,15 +70,16 @@ def myPrint(Line,my100by2,lineIndex,numLines,myArraySize):
             print("Error in line " + str(lineIndex) + "(indexing begins at zero) of input file") 
             print("No Sequence at Position " + str(ArrPosition) + " to print" )
         else:
+            #print("-Print One Line-")
             print("[" + str(ArrPosition) + "] " + str(my100by2[ArrPosition][0]) + " " + str(my100by2[ArrPosition][1])  )
     else: 
-         print("***** New Print *******")
+         #print("-Print ALL Lines-")
          for i in range(0,myArraySize): 
             if my100by2[i][0] == 0 :
                 pass
             else: 
                 print("["+ str(i) +"] "+ str(my100by2[i][0]) +" " + str(my100by2[i][1]))
-         print("***** End ********")
+         #print("-End Print ALL Lines-")
 
 def mySwap(Line,my100by2,lineIndex):
 
@@ -120,9 +121,37 @@ def mySwap(Line,my100by2,lineIndex):
         SequenceB = SequenceB.replace(endOfB, endOfA)
         my100by2[PosB][1] = SequenceB
 
+def myTranscribe(Line,my100by2,lineIndex):
+     sequenceArrayPosition = int( Line[1] )
+     sequenceType = my100by2[sequenceArrayPosition][0]
+     ThisSequence = my100by2[sequenceArrayPosition][1]
+     numChars = len(ThisSequence)
 
-def myTranscribe(ThisStringLine):
-     print("Transcribe made it")   
+     match sequenceType: 
+        case 'DNA':
+
+            ThisSequence = ThisSequence.replace('T','U')
+            NewRNA = ''
+            for i in range (0,numChars):
+                match ThisSequence[i]:
+                    case 'A':
+                        NewRNA+='U'
+                    case 'C':
+                        NewRNA+='G'
+                    case 'G':
+                        NewRNA+='C'
+                    case 'U':
+                        NewRNA+='A'
+            my100by2[sequenceArrayPosition][1] = NewRNA
+            my100by2[sequenceArrayPosition][0] = 'RNA'
+        case 'RNA':
+                print("Error in line " + str(lineIndex) + "(indexing begins at zero) of input file") 
+                print("RNA cannot be transcribed")
+        case other: 
+                print("Error in line " + str(lineIndex) + "(indexing begins at zero) of input file") 
+                print("error in type label")
+        
+
 
 
 ####################  MAIN ##########################
@@ -173,4 +202,4 @@ for j in range(0,numLines):
         case "swap":
               mySwap(thisLine,my100by2,lineIndex)
         case "transcribe":
-            myTranscribe(thisLine)
+            myTranscribe(thisLine,my100by2,lineIndex)
