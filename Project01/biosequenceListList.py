@@ -1,5 +1,5 @@
 #biosequence.py 
-#Courtney Boyd last updated 28Feb2023
+#Courtney Boyd last updated 05Mar2023
 #Advanced Software Dev Project 01 
 import sys 
 import numpy as np 
