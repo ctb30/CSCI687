@@ -78,7 +78,7 @@ def myPrint(Line,my100by2,lineIndex,numLines):
                 pass
             else: 
                 print("index#"+ str(i) +" "+ str(my100by2[i][0]) +" " + str(my100by2[i][1]))
-         print("***** End *******")
+         print("***** End ********")
 
 def mySwap(ThisStringLine):
      print("swap made it")
