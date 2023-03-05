@@ -48,8 +48,8 @@ def myRemove(Line,my100by2,lineIndex):
     if my100by2[sequenceArrayPosition][0] == 0 : 
          print("No Sequence at Position " + str(sequenceArrayPosition) + " to remove" ) 
     else:
-        my100by2[sequenceArrayPosition][1] = "0"
-        my100by2[sequenceArrayPosition][0] = "0"
+        my100by2[sequenceArrayPosition][1] = 0
+        my100by2[sequenceArrayPosition][0] = 0
 
 
 def myPrint(ThisStringLine):
