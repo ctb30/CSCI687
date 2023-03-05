@@ -62,8 +62,23 @@ def myCopy(Line,my100by2,lineIndex):
         my100by2[PositionB][0] = my100by2[PositionA][0]
         my100by2[PositionB][1] = my100by2[PositionA][1] 
 
-def myPrint(ThisStringLine):
-    print("Printmade it")
+def myPrint(Line,my100by2,lineIndex,numLines):
+    numSegments = len(Line)
+    if numSegments >= 2 : 
+        ArrPosition = int(Line[1]) 
+        if my100by2[ArrPosition][0] == 0 :
+            print("Error in line " + str(lineIndex) + "(indexing begins at zero) of input file") 
+            print("No Sequence at Position " + str(ArrPosition) + " to print" )
+        else:
+            print("Position: " + str(ArrPosition) + " Type: " + str(my100by2[ArrPosition][0]) + " Sequence: " + str(my100by2[ArrPosition][1])  )
+    else: 
+         print("***** New Print *******")
+         for i in range(0,numLines):
+            if my100by2[i][0] == 0 :
+                pass
+            else: 
+                print("index#"+ str(i) +" "+ str(my100by2[i][0]) +" " + str(my100by2[i][1]))
+         print("***** End *******")
 
 def mySwap(ThisStringLine):
      print("swap made it")
@@ -113,8 +128,6 @@ for k in range(0,numLines):
 
 for j in range(0,numLines):
     thisLine = CommandList[j]
-    
-    numSegments =  len(thisLine)
     firstSegment = thisLine[0]
     lineIndex = j
     match firstSegment: 
@@ -125,15 +138,15 @@ for j in range(0,numLines):
         case "copy":
               myCopy(thisLine,my100by2,lineIndex)
         case "print":
-            myPrint(thisLine)
+            myPrint(thisLine,my100by2,lineIndex,numLines)
         case "swap":
               mySwap(thisLine)
         case "transcribe":
             myTranscribe(thisLine)
 
 
-print("TESTING PURPOSES: ")
-print(my100by2)
+#print("TESTING PURPOSES: ")
+#print(my100by2)
               
 
 
