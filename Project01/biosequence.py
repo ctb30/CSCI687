@@ -46,14 +46,24 @@ def myInsert(Line, my100by2,lineIndex):
 def myRemove(Line,my100by2,lineIndex):
     sequenceArrayPosition = int( Line[1] )
     if my100by2[sequenceArrayPosition][0] == 0 : 
+         print("Error in line " + str(lineIndex) + "(indexing begins at zero) of input file") 
          print("No Sequence at Position " + str(sequenceArrayPosition) + " to remove" ) 
     else:
         my100by2[sequenceArrayPosition][1] = 0
         my100by2[sequenceArrayPosition][0] = 0
 
+def myCopy(Line,my100by2,lineIndex):
+    PositionA = int( Line[1] )
+    PositionB = int( Line[2] )
+    if my100by2[PositionA][0] == 0 :
+        print("Error in line " + str(lineIndex) + "(indexing begins at zero) of input file") 
+        print("No Sequence at Position " + str(PositionA) + " to copy" ) 
+    else: 
+        my100by2[PositionB][0] = my100by2[PositionA][0]
+        my100by2[PositionB][1] = my100by2[PositionA][1] 
 
 def myPrint(ThisStringLine):
-     print("print made it")
+    print("Printmade it")
 
 def mySwap(ThisStringLine):
      print("swap made it")
@@ -63,8 +73,7 @@ def myTranscribe(ThisStringLine):
 
 
 
-def myCopy(ThisStringLine):
-     print("Copy made it")   
+
 
 
 
@@ -113,14 +122,15 @@ for j in range(0,numLines):
             myInsert(thisLine,my100by2,lineIndex)
         case "remove":
             myRemove(thisLine,my100by2,lineIndex)
+        case "copy":
+              myCopy(thisLine,my100by2,lineIndex)
         case "print":
             myPrint(thisLine)
         case "swap":
               mySwap(thisLine)
         case "transcribe":
             myTranscribe(thisLine)
-        case "copy":
-              myCopy(thisLine)
+
 
 print("TESTING PURPOSES: ")
 print(my100by2)
