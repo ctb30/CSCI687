@@ -81,6 +81,7 @@ def myPrint(Line,my100by2,lineIndex,numLines,myArraySize):
          print("***** End ********")
 
 def mySwap(Line,my100by2,lineIndex):
+
     PosA = int( Line[1] )
     PosAStart = int( Line[2] )
 
@@ -89,11 +90,18 @@ def mySwap(Line,my100by2,lineIndex):
 
     SequenceA = my100by2[PosA][1]
     SequenceB = my100by2[PosB][1]
+
+    TypeA = my100by2[PosA][0]
+    TypeB = my100by2[PosB][0]
     
     numCharsA = len(SequenceA) 
     numCharsB = len(SequenceB)
 
-    if( PosBStart > numCharsB ):
+
+    if(TypeA != TypeB):
+        print("Error in line " + str(lineIndex) + "(indexing begins at zero) of input file") 
+        print("Sequence Types do not match for swap")
+    elif( PosBStart > numCharsB ):
         print("Error in line " + str(lineIndex) + "(indexing begins at zero) of input file") 
         print("an invalid start location was provided for swap")
     else:
