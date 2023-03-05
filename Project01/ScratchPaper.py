@@ -1,28 +1,12 @@
-   
-SCRATCHPAPER:
+import numpy as np
+my100by2 = np.zeros((5,2), dtype=object)
 
-if numSegments >= 3 : 
-        secondSegment = thisLine[1]
-        sequenceArrayPosition = int(secondSegment)
-        print(" Change at position" + str(sequenceArrayPosition))
+my100by2[3][0] = "RNA"
+my100by2[0][0] = "DNA"
 
-        thirdSegment = thisLine[2]
-        flag = 0 
-        match thirdSegment:
-            case "DNA":
-                  print("DNA!")
-                  flag = 1
-            case "RNA":
-                  print("RNA!")
-                  flag = 1 
-        
-        if flag == 0: 
-             thirdSegment
-        
-            
+TestSequence = "AAGGCCUU"
+my100by2[3][1] = TestSequence
 
-    elif numSegments >= 2 : 
-         secondSegment = thisLine[1]
-         sequenceArrayPosition = int(secondSegment)
-         print(" Change at position" + str(sequenceArrayPosition))
-         
+
+print("my100by2")
+print(my100by2)
