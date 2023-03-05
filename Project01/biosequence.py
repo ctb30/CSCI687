@@ -70,7 +70,7 @@ def myPrint(Line,my100by2,lineIndex,numLines,myArraySize):
             print("Error in line " + str(lineIndex) + "(indexing begins at zero) of input file") 
             print("No Sequence at Position " + str(ArrPosition) + " to print" )
         else:
-            print("Position: " + str(ArrPosition) + " Type: " + str(my100by2[ArrPosition][0]) + " Sequence: " + str(my100by2[ArrPosition][1])  )
+            print("[" + str(ArrPosition) + "] " + str(my100by2[ArrPosition][0]) + " " + str(my100by2[ArrPosition][1])  )
     else: 
          print("***** New Print *******")
          for i in range(0,myArraySize): 
@@ -90,24 +90,27 @@ def mySwap(Line,my100by2,lineIndex):
     SequenceA = my100by2[PosA][1]
     SequenceB = my100by2[PosB][1]
     
-
     numCharsA = len(SequenceA) 
     numCharsB = len(SequenceB)
-    
-    endOfA = ""
-    endOfB = ""
 
-    for i in range(PosAStart,numCharsA):
-        endOfA += SequenceA[i]
-    for j in range(PosBStart,numCharsB):
-        endOfB += SequenceB[j]
+    if( PosBStart > numCharsB ):
+        print("Error in line " + str(lineIndex) + "(indexing begins at zero) of input file") 
+        print("an invalid start location was provided for swap")
+    else:
+        endOfA = ""
+        endOfB = ""
+
+        for i in range(PosAStart,numCharsA):
+            endOfA += SequenceA[i]
+        for j in range(PosBStart,numCharsB):
+            endOfB += SequenceB[j]
 
 
-    SequenceA = SequenceA.replace(endOfA,endOfB)
-    my100by2[PosA][1] = SequenceA 
-    
-    SequenceB = SequenceB.replace(endOfB, endOfA)
-    my100by2[PosB][1] = SequenceB
+        SequenceA = SequenceA.replace(endOfA,endOfB)
+        my100by2[PosA][1] = SequenceA 
+
+        SequenceB = SequenceB.replace(endOfB, endOfA)
+        my100by2[PosB][1] = SequenceB
 
 
 def myTranscribe(ThisStringLine):
