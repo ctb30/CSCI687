@@ -4,26 +4,26 @@
 import sys 
 import numpy as np 
 
-def myInsert(Line, my100by2, numSegments):
+def myInsert(Line, my100by2,lineIndex):
     
     sequenceArrayPosition = int( Line[1] )
     
-    SequenceType = Line[2]
-    my100by2[1][sequenceArrayPosition] = SequenceType
 
+    SequenceType = Line[2]
     ThisSequence = Line[3]
     match SequenceType:
         case "DNA":
             if 'U' in ThisSequence: 
-                print(" Error: Type entered was DNA, Sequence entered was RNA. No change made")
+                print(" Error in line " + str(lineIndex) + "(indexing begins with zero) of input file ")
             else: 
-                 print("Foooo")
-                 my100by2[0][sequenceArrayPosition] = ThisSequence
+                my100by2[sequenceArrayPosition][1] = ThisSequence
+                my100by2[sequenceArrayPosition][0] = SequenceType
         case "RNA":
             if 'T' in ThisSequence: 
-                     print(" Error: Type entered was RNA, Sequence entered was DNA. No change made")
+                     print(" Error in line " + str(lineIndex)  + " of input file ")
             else:
-                 my100by2[0][sequenceArrayPosition] = ThisSequence
+                 my100by2[sequenceArrayPosition][1] = ThisSequence
+                 my100by2[sequenceArrayPosition][0] = SequenceType
 
  
     
@@ -53,25 +53,22 @@ numTerminalSegments = len(sys.argv)
 #print("Num Term Segs: " + str(numTerminalSegments))
 
 if numTerminalSegments == 2: 
-    my100by2 = [[],[]]
-    my100by2[0] = ["Unused"]*100
-    my100by2[1] = ["Unused"]*100
+    my100by2 = np.zeros((100,2), dtype=object)
     fileNameIndex = 1
 
 elif numTerminalSegments == 3: 
+    
     userInputArraySize = sys.argv[1]
     print("Array Size: " + str(userInputArraySize))
     userInputArraySize= int(userInputArraySize) 
-
-    my100by2 = [[],[]]
-    my100by2[0] = ["Unused"]*userInputArraySize
-    my100by2[1] = ["Unused"]*userInputArraySize
+    my100by2 = np.zeros((userInputArraySize,2), dtype=object)
     fileNameIndex = 2
+
 CommandList = []
 
 try:
     userInputFile = (str(sys.argv[fileNameIndex]))
-    print("File:" +str(userInputFile))
+    #print("File:" +str(userInputFile))
     readIn = open(userInputFile,'r')
 
 except FileNotFoundError:
@@ -94,7 +91,7 @@ for j in range(0,numLines):
     lineIndex = j
     match firstSegment: 
         case "insert": 
-            myInsert(thisLine,my100by2, numSegments)
+            myInsert(thisLine,my100by2,lineIndex)
         case "print":
             myPrint(thisLine)
         case "swap":

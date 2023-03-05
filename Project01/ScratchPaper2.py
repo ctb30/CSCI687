@@ -1,13 +1,23 @@
-import numpy as np
 
-# Create a NumPy array of zeros with shape (2, 2)
-my_array = np.zeros((2, 2), dtype=object)
-
-# Create a pointer to a string
-my_pointer = "Brick"
-
-# Save the pointer in the array at position (1, 0)
-my_array[1, 0] = my_pointer
-
-# Print the contents of the array
-print(my_array)
+#ScratchPaper2.py
+ThisSequence = 'AGGTC'
+numChars = len(ThisSequence)
+print("numChars: " + str(numChars))
+Flag = 0
+for i in range (0,numChars):
+    ThisChar = ThisSequence[i]
+    match ThisChar: 
+        case 'A':
+            Flag += 0
+        case 'C':
+            Flag += 0
+        case 'G':
+            Flag += 0
+        case 'T':
+            Flag += 0
+        case other: 
+            Flag += 1 
+if Flag > 0 : 
+    print("Error")
+if Flag == 0 : 
+    print("Fill it up")

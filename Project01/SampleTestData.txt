@@ -3,7 +3,7 @@ insert 3 DNA AGGC
 insert 5 RNA ACCU
 print
 remove 1
-remove 2
+insert 2 RNA BBBB
 print
 insert 16 DNA AGCGGCG
 insert 15 RNA AAA
@@ -18,3 +18,4 @@ print 15
 print 16
 transcribe 5
 print
+insert 6 DNA AGGU
