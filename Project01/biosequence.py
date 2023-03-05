@@ -77,28 +77,23 @@ def myPrint(Line,my100by2,lineIndex,numLines,myArraySize):
             if my100by2[i][0] == 0 :
                 pass
             else: 
-                print("index#"+ str(i) +" "+ str(my100by2[i][0]) +" " + str(my100by2[i][1]))
+                print("["+ str(i) +"] "+ str(my100by2[i][0]) +" " + str(my100by2[i][1]))
          print("***** End ********")
 
 def mySwap(Line,my100by2,lineIndex):
     PosA = int( Line[1] )
     PosAStart = int( Line[2] )
-    print("Pos A: " + str(PosA))
 
     PosB = int (Line[3])
     PosBStart = int (Line[4])
-    print("Pos B: " + str(PosB))
 
     SequenceA = my100by2[PosA][1]
-    print("SeqA: " + str(SequenceA))
     SequenceB = my100by2[PosB][1]
-    print("SeqB: " + str(SequenceB))
+    
 
     numCharsA = len(SequenceA) 
-    print("NumcharsA:" + str(numCharsA))
     numCharsB = len(SequenceB)
-    print("NumcharsB:" + str(numCharsB))
-
+    
     endOfA = ""
     endOfB = ""
 
@@ -107,13 +102,10 @@ def mySwap(Line,my100by2,lineIndex):
     for j in range(PosBStart,numCharsB):
         endOfB += SequenceB[j]
 
-    print("endOfA : ")
-    print(endOfA )
-    print("endOfB: ")
-    print(endOfB)
 
     SequenceA = SequenceA.replace(endOfA,endOfB)
     my100by2[PosA][1] = SequenceA 
+    
     SequenceB = SequenceB.replace(endOfB, endOfA)
     my100by2[PosB][1] = SequenceB
 
