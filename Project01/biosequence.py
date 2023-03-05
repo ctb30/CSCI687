@@ -1,5 +1,5 @@
 #biosequence.py 
-#Courtney Boyd last updated 28Feb2023
+#Courtney Boyd last updated 05Mar2023
 #Advanced Software Dev Project 01 
 import sys 
 import numpy as np 
@@ -87,15 +87,7 @@ def myTranscribe(ThisStringLine):
      print("Transcribe made it")   
 
 
-
-
-
-
-
-
-
 ####################  MAIN ##########################
-
 numTerminalSegments = len(sys.argv)
 
 if numTerminalSegments == 2: 
@@ -143,18 +135,3 @@ for j in range(0,numLines):
               mySwap(thisLine)
         case "transcribe":
             myTranscribe(thisLine)
-
-
-#print("TESTING PURPOSES: ")
-#print(my100by2)
-              
-
-
-         
-
-      
-         
-      
-
-
-
