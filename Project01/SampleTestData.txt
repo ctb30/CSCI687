@@ -1,26 +1,6 @@
-insert 2 DNA AGG
+insert 2 DNA AGGT
 insert 3 DNA AGGC
-insert 5 RNA ACCU
 print
-remove 1
-remove 2
-print
-insert 16 DNA AGCGGCGTTTT
-insert 15 RNA AAA
-print 2
-print 15
-copy 15 2
-copy 17 15
-print 2
-print 15
-swap 16 3 15 4
-print
-swap 16 3 15 0
-print 15
-print 16
-print
-swap 3 0 16 0
-transcribe 5
-print 3
+transcribe 2
 transcribe 3
 print
